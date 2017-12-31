@@ -30,14 +30,14 @@
   </template>
 
   <script>
-    class HomeQuotes extends Polymer.Element {
-      static get is() { return 'home-quotes'; }
+      class HomeQuotes extends Polymer.Element {
+          static get is() { return 'home-quotes'; }
 
-      getQuote() {
-        this.$.getQuoteAjax.generateRequest();
+          getQuote() {
+              this.$.getQuoteAjax.generateRequest();
+          }
       }
-    }
 
-    window.customElements.define(HomeQuotes.is, HomeQuotes);
+      window.customElements.define(HomeQuotes.is, HomeQuotes);
   </script>
 </dom-module>

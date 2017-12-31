@@ -44,24 +44,24 @@
   </template>
 
   <script>
-    class LogOut extends Polymer.Element {
-      static get is() { return 'log-out'; }
+      class LogOut extends Polymer.Element {
+          static get is() { return 'log-out'; }
 
-      static get properties() {
-        return {
-          storedUser: Object,
-          link: {
-            type: Boolean,
-            value: false
+          static get properties() {
+              return {
+                  storedUser: Object,
+                  link: {
+                      type: Boolean,
+                      value: false
+                  }
+              }
           }
-        }
+
+          logout() {
+              this.storedUser = null;
+          }
       }
 
-      logout() {
-        this.storedUser = null;
-      }
-    }
-
-    window.customElements.define(LogOut.is, LogOut);
+      window.customElements.define(LogOut.is, LogOut);
   </script>
 </dom-module>
