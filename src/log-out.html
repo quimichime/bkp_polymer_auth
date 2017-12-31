@@ -1,6 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
 <link rel="import" href="../bower_components/brum-global-variable/brum-global-variable.html">
 
 <dom-module id="log-out">
@@ -31,7 +30,6 @@
       }
     </style>
 
-    <iron-localstorage name="user-storage" value="{{storedUser}}"></iron-localstorage>
     <brum-global-variable key="userData" value="{{storedUser}}"></brum-global-variable>
 
     <template is="dom-if" if="{{!link}}">
@@ -44,24 +42,28 @@
   </template>
 
   <script>
-      class LogOut extends Polymer.Element {
-          static get is() { return 'log-out'; }
+      (function() {
+          class LogOut extends Polymer.Element {
+              static get is() {
+                  return 'log-out';
+              }
 
-          static get properties() {
-              return {
-                  storedUser: Object,
-                  link: {
-                      type: Boolean,
-                      value: false
+              static get properties() {
+                  return {
+                      storedUser: Object,
+                      link: {
+                          type: Boolean,
+                          value: false
+                      }
                   }
+              }
+
+              logout() {
+                  this.storedUser = null;
               }
           }
 
-          logout() {
-              this.storedUser = null;
-          }
-      }
-
-      window.customElements.define(LogOut.is, LogOut);
+          window.customElements.define(LogOut.is, LogOut);
+      }());
   </script>
 </dom-module>
