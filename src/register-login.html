@@ -30,6 +30,26 @@
         font-size: 14px;
         padding: 10px;
       }
+
+      input {
+        position: relative; /* to make a stacking context */
+        outline: none;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+        background: transparent;
+        border: none;
+        color: var(--paper-input-container-input-color, var(--primary-text-color));
+        -webkit-appearance: none;
+        text-align: inherit;
+        vertical-align: bottom;
+        /* Firefox sets a min-width on the input, which can cause layout issues */
+        min-width: 0;
+        @apply --paper-font-subhead;
+        @apply --paper-input-container-input;
+      }
     </style>
 
     <iron-ajax
@@ -59,7 +79,7 @@
         <paper-input-container>
           <label slot="input">Username</label>
           <iron-input slot="input" bind-value="{{formData.username}}">
-            <input id="username" type="text" value="{{formData.username}}" placeholder="Username">
+            <input class="input-style" id="username" type="text" value="{{formData.username}}" placeholder="Username">
           </iron-input>
         </paper-input-container>
 
